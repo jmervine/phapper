@@ -1,0 +1,27 @@
+{
+  "name": "phapper",
+  "version": "0.0.1",
+  "description": "PhantomJS Script wrapper for Node.",
+  "main": "./lib/phapper.js",
+  "scripts": {
+    "test": "make tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jmervine/phapper.git"
+  },
+  "keywords": [
+    "phantomjs"
+  ],
+  "author": "Joshua Mervine <joshua@mervine.net> (http://mervine.net)",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/jmervine/phapper/issues"
+  },
+  "devDependencies": {
+    "nodeunit": "~0.8.1"
+  },
+  "dependencies": {
+    "exec-sync": "~0.1.6"
+  }
+}
