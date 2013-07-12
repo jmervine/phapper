@@ -20,10 +20,10 @@ module.exports = {
     'new Phapper(script)': function (test) {
         test.expect(3);
 
-        var phap = new Phapper("./test/support/example.js");
+        var phap = new Phapper("./test/support/json.js");
         test.ok(phap);
         test.ok(phap.script);
-        test.equal("./test/support/example.js", phap.script);
+        test.equal("./test/support/json.js", phap.script);
 
         test.done();
     },
@@ -31,7 +31,7 @@ module.exports = {
     'new Phapper(script, args)': function (test) {
         test.expect(3);
 
-        var phap = new Phapper("./test/support/example.js",
+        var phap = new Phapper("./test/support/json.js",
                     [ "--foo", "bar", "foobar" ]);
 
         test.ok(phap);
@@ -44,40 +44,77 @@ module.exports = {
     '#command()': function (test) {
         test.expect(2);
 
-        var phap = new Phapper("./test/support/example.js",
+        var phap = new Phapper("./test/support/json.js",
                     [ "--foo", "bar", "foobar" ]);
 
         test.ok(phap.command());
-        test.equal("phantomjs ./test/support/example.js --foo bar foobar",
+        test.equal("phantomjs ./test/support/json.js --foo bar foobar",
                     phap.command());
         test.done();
     },
 
-    '#runSync()': function (test) {
+    '#runSync() :: json output': function (test) {
         test.expect(3);
 
-        var phap = new Phapper("./test/support/example.js",
+        var phjson = new Phapper("./test/support/json.js",
                     [ "--foo", "bar", "foobar" ]);
 
-        var results = phap.runSync();
+        var results = phjson.runSync();
         test.ok(results);
-        test.ok(results.foo);
-        test.ok("bar", results.foo);
+        test.ok(results.parsed.foo);
+        test.ok("bar", results.parsed.foo);
         test.done();
     },
 
-    '#run()': function (test) {
-        test.expect(4);
+    '#runSync() :: string output': function (test) {
+        test.expect(5);
 
-        var phap = new Phapper("./test/support/example.js",
+        var phstr = new Phapper("./test/support/string.js",
                     [ "--foo", "bar", "foobar" ]);
 
-        phap.run( function (result, raw_result) {
+        var results = phstr.runSync();
+
+        test.ok(results);
+        test.ok(results.stdout);
+        test.ok(results.stderr);
+
+        test.equal("stdout: foobar", results.stdout);
+        test.equal("stderr: foobar", results.stderr);
+
+        test.done();
+    },
+
+    '#run() :: json output': function (test) {
+        test.expect(6);
+
+        var phjson = new Phapper("./test/support/json.js",
+                    [ "--foo", "bar", "foobar" ]);
+
+        phjson.run( function (result, results_obj) {
             test.ok(result);
-            test.ok(raw_result);
+            test.ok(results_obj);
 
             test.equal("bar", result.foo);
-            test.equal('{ \"foo\": \"bar\" }\n', raw_result);
+            test.equal('{ \"foo\": \"bar\" }\n', results_obj.stdout);
+            test.equal("", results_obj.stderr);
+            test.equal(null, results_obj.error);
+            test.done();
+        });
+    },
+
+    '#run() :: string output': function (test) {
+        test.expect(5);
+
+        var phstr = new Phapper("./test/support/string.js",
+                    [ "--foo", "bar", "foobar" ]);
+
+        phstr.run( function (result, results_obj) {
+            test.ok(result === undefined);
+            test.ok(results_obj);
+
+            test.equal("stdout: foobar\n", results_obj.stdout);
+            test.equal("stderr: foobar\n", results_obj.stderr);
+            test.equal(null, results_obj.error);
             test.done();
         });
     },
