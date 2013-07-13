@@ -5,7 +5,9 @@ var Phapper = require('../lib/phapper');
 var yslow = new Phapper("./test/support/yslow.js",
                         [ "--info", "basic", "http://mervine.net/about" ]);
 
-console.log("Run Sync");
+console.log("PhantomJS path: ", yslow.bin);
+
+console.log("\nRun Sync");
 var results = yslow.runSync();
 console.log("Results:\n%j", results);
 
