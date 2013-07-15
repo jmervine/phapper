@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
-libdir="$(echo $(cd $(dirname $0); pwd)/lib)"
+libdir="$(echo $(cd $(dirname $0)/..; pwd)/lib)"
 srcpath="https://phantomjs.googlecode.com/files"
-version="1.9.1"
+if test "$npm_config_phantomjs_version"; then
+  version="$npm_config_phantomjs_version"
+else
+  version="$npm_package_config_phantomjs_version"
+fi
+
+echo $version
+exit 1
 
 function yay_finished {
   echo " "
