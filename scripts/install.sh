@@ -7,9 +7,6 @@ else
   version="$npm_package_config_phantomjs_version"
 fi
 
-echo $version
-exit 1
-
 function yay_finished {
   echo " "
   echo "You can reference it within node like so:"
