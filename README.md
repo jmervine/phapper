@@ -1,5 +1,8 @@
 # Phapper
 
+[![Build Status](https://travis-ci.org/jmervine/phapper.png?branch=master)](https://travis-ci.org/jmervine/phapper) &nbsp; [![Dependancy Status](https://david-dm.org/jmervine/phapper.png)](https://david-dm.org/jmervine/phapper) &nbsp; [![NPM Version](https://badge.fury.io/js/phapper.png)](https://badge.fury.io/js/phapper)
+
+
 Simple PhantomJS Script wrapper for Node.js, which parsed JSON output from the
 passed PhantomJS script (if possible).
 
@@ -11,7 +14,7 @@ passed PhantomJS script (if possible).
 
 ### Node.js Version
 
-[![Build Status](https://travis-ci.org/jmervine/phapper.png?branch=master)](https://travis-ci.org/jmervine/phapper) for the following node versions:
+Tested on the following node versions (via [Travis-ci.org](http://travis-ci.org)):
 
 - 0.8
 - 0.10
