@@ -60,8 +60,8 @@ module.exports = {
         test.done();
     },
 
-    '#command_string()': function (test) {
-        test.expect(2);
+    '#commandString()': function (test) {
+        test.expect(4);
 
         var phap = new Phapper("./test/support/json.js",
                     [ "--foo", "bar", "foobar" ]);
@@ -69,6 +69,16 @@ module.exports = {
         test.ok(phap.commandString());
         test.ok(phap.commandString()
                 .indexOf("phantomjs ./test/support/json.js --foo bar foobar") !== -1);
+
+        var phap = new Phapper("./test/support/json.js",
+                    [ "--foo", "bar", "foobar" ],
+                    { cwd: "./foobar" });
+
+        test.equal(0, phap.commandString().indexOf("cd ./foobar &&"))
+
+        test.ok(phap.commandString()
+                .indexOf("phantomjs ./test/support/json.js --foo bar foobar") !== -1);
+
         test.done();
     },
 
