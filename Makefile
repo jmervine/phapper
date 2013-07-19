@@ -4,7 +4,7 @@ NODE_EXEC=$(NODE_LIBS) ./node_modules/.bin/
 console:
 	$(NODE_LIBS) node
 
-tests:
+test: .PHONY
 	$(NODE_EXEC)nodeunit ./test/*_test.js
 
 functional:
@@ -16,3 +16,4 @@ setup:
 clean:
 	rm -rf ./node_modules/
 
+.PHONY:

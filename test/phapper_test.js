@@ -1,7 +1,5 @@
 var Phapper = require('lib/phapper');
 
-//process.env.PATH = "./test/support:"+process.env.PATH;
-
 module.exports = {
     setUp: function(cb) {
         Phapper.prototype.bin = "./test/support/phantomjs";
@@ -9,27 +7,25 @@ module.exports = {
     },
 
     'new Phapper()': function (test) {
-        test.expect(2);
+        test.expect(1);
 
         test.throws(function () {
             var p = new Phapper();
-        }, Error);
-
-        test.throws(function () {
-            var p = new Phapper("./bad/file.js");
         }, Error);
 
         test.done();
     },
 
     'new Phapper(script)': function (test) {
-        test.expect(5);
+        test.expect(7);
 
         delete Phapper.prototype.bin;
 
         var phap = new Phapper("./test/support/json.js");
         test.ok(phap);
         test.ok(phap.script);
+        test.ok(phap.args);
+        test.deepEqual({}, phap.opts);
         test.equal("./test/support/json.js", phap.script);
 
         test.ok(phap.bin);
@@ -48,6 +44,19 @@ module.exports = {
         test.ok(phap.args);
         test.equal("--foo", phap.args[0]);
 
+        test.done();
+    },
+
+    'new Phapper(script, args, opts)': function (test) {
+        test.expect(2);
+
+        var phap = new Phapper("./json.js",
+                    [ "--foo", "bar", "foobar" ],
+                    { cwd: "./test/support/",
+                      env: process.env });
+
+        test.ok(phap.args);
+        test.equal("./test/support/", phap.opts.cwd);
         test.done();
     },
 

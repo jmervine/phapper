@@ -47,6 +47,9 @@ I've added limited Windows support, in that you'll have to install [PhantomJS](h
     var Phapper = require('phapper');
     var phap = new Phapper("/path/to/phantom/script.js",
                             [ "--arg1", "val1", "--arg2", "arg3" ]);
+    // Phapper also takes an Object as a third argument which can be
+    // anything you might pass to `child_process.exec`. E.g. `env`,
+    // `cwd`, etc.
 
     console.log("Run Sync");
     var results = phap.runSync();
