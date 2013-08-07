@@ -96,7 +96,7 @@ module.exports = {
     },
 
     '#runSync() :: string output': function (test) {
-        test.expect(5);
+        test.expect(6);
 
         var phstr = new Phapper("./test/support/string.js",
                     [ "--foo", "bar", "foobar" ]);
@@ -104,11 +104,14 @@ module.exports = {
         var results = phstr.runSync();
 
         test.ok(results);
-        test.ok(results.stdout);
-        test.ok(results.stderr);
+        test.ok(results.output);
+        test.equal("stdout: foobar\nstderr: foobar\n", results.output);
 
-        test.equal("stdout: foobar", results.stdout);
-        test.equal("stderr: foobar", results.stderr);
+        // for backwards compatibility, will remove
+        // in 0.2.0
+        test.ok(results.stdout);
+        test.equal("stdout: foobar\nstderr: foobar\n", results.stdout);
+        test.equal("", results.stderr);
 
         test.done();
     },

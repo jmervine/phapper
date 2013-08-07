@@ -1,6 +1,6 @@
 {
   "name": "phapper",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "PhantomJS Script wrapper for Node.",
   "main": "./lib/phapper.js",
   "scripts": {
@@ -26,6 +26,6 @@
     "nodeunit": "~0.8.1"
   },
   "dependencies": {
-    "exec-sync": "~0.1.6"
+    "execSync": "~1.0.1-pre"
   }
 }

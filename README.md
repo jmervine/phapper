@@ -51,18 +51,19 @@ I've added limited Windows support, in that you'll have to install [PhantomJS](h
     // anything you might pass to `child_process.exec`. E.g. `env`,
     // `cwd`, etc. When using runSync, only `cwd` is supported.
 
+
+    // Note: runSync is pretty inefficent due to execSync.exec.
     console.log("Run Sync");
     var results = phap.runSync();
     // => results
     // {
     //    parsed: { parsed json from stdout || undefined },
-    //    stdout: "stdout string",
-    //    stderr: "stderr string"
+    //    output: "stdout string\nstderr string"
     // }
     if (results.parsed) {
         console.log("result object:\n%j", results.parsed);
     } else {
-        console.log(results.stdout);
+        console.log(results.output);
     }
 
     console.log("Run Async");
