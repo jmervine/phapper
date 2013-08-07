@@ -23,6 +23,9 @@ Tested on the following node versions (via [Travis-ci.org](http://travis-ci.org)
 ## Install
 
     $ npm install phapper
+    
+> Note: On CentOS 6, I had to install the following packages:
+> - `sudo yum install freetype fontconfig`
 
 #### Additional Installation Notes
 
