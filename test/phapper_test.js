@@ -6,6 +6,24 @@ module.exports = {
         cb();
     },
 
+    'Phapper.phantomjs.version:': function (test) {
+        test.expect(1);
+        test.equal(require('../package.json').config.phantomjs_version, Phapper.phantomjs.version);
+        test.done();
+    },
+
+    'Phapper.phantomjs.path:': function (test) {
+        test.expect(1);
+        test.ok(Phapper.phantomjs.path.indexOf('phantomjs') !== -1);
+        test.done();
+    },
+
+    'Phapper.phantomjs.bin:': function (test) {
+        test.expect(1);
+        test.ok(Phapper.phantomjs.bin.indexOf('phantomjs') !== -1);
+        test.done();
+    },
+
     'new Phapper()': function (test) {
         test.expect(1);
 

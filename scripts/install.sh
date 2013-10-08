@@ -21,14 +21,17 @@ function yay_finished {
 function write_phpath_js {
   echo "module.exports.phantomjs = '$1';" > $libdir/phpath.js
   echo "PhantomJS is installed."
-  echo "=> $1"
+  echo "=> version: $(phantomjs --version)"
+  echo "=> path: $1"
 }
 
 # check for phantomjs && exit
 phantomjs=`which phantomjs`
 if [ "$phantomjs" != "" ]; then
-  write_phpath_js $phantomjs
-  yay_finished
+  if phantomjs --version | grep "$version" > /dev/null; then
+    write_phpath_js $phantomjs
+    yay_finished
+  fi
 fi
 
 if test -x "$libdir/phantom/bin/phantomjs"; then
@@ -102,3 +105,4 @@ fi
 write_phpath_js "$libdir/phantom/bin/phantomjs"
 yay_finished
 
+# vim: ft=sh:
