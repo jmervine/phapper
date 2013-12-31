@@ -1,6 +1,6 @@
 # Phapper
 
-[![Build Status](https://travis-ci.org/jmervine/phapper.png?branch=master)](https://travis-ci.org/jmervine/phapper) &nbsp; [![Dependancy Status](https://david-dm.org/jmervine/phapper.png)](https://david-dm.org/jmervine/phapper) &nbsp; [![NPM Version](https://badge.fury.io/js/phapper.png)](https://badge.fury.io/js/phapper)
+[![Build Status](https://travis-ci.org/jmervine/phapper.png?branch=master)](https://travis-ci.org/jmervine/phapper) &nbsp; [![Dependancy Status](https://david-dm.org/jmervine/phapper.png)](https://david-dm.org/jmervine/phapper) &nbsp; [![NPM Version](https://badge.fury.io/js/phapper.png)](https://badge.fury.io/js/phapper) &nbsp;  <iframe src="http://jmervine.github.io/npm-downloads-badge/badge.html?module=phapper&name=false" allowtransparency="true" frameborder="0" scrolling="0" width="125" height="20" style="vertical-align: bottom"></iframe>
 
 
 Simple PhantomJS Script wrapper for Node.js, which parsed JSON output from the
