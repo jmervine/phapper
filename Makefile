@@ -15,5 +15,6 @@ setup:
 
 clean:
 	rm -rf ./node_modules/
+	rm -rf ./lib/phantom/
 
 .PHONY:

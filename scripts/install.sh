@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 libdir="$(echo $(cd $(dirname $0)/..; pwd)/lib)"
-srcpath="https://phantomjs.googlecode.com/files"
+srcpath="https://bitbucket.org/ariya/phantomjs/downloads"
 if test "$npm_config_phantomjs_version"; then
   version="$npm_config_phantomjs_version"
 else

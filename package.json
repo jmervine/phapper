@@ -1,6 +1,6 @@
 {
   "name": "phapper",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "PhantomJS Script wrapper for Node.",
   "main": "./lib/phapper.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "test": "make test"
   },
   "config": {
-    "phantomjs_version": "1.9.1"
+    "phantomjs_version": "1.9.7"
   },
   "repository": {
     "type": "git",
