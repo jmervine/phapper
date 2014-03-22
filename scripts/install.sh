@@ -21,7 +21,7 @@ function yay_finished {
 function write_phpath_js {
   echo "module.exports.phantomjs = '$1';" > $libdir/phpath.js
   echo "PhantomJS is installed."
-  echo "=> version: $(phantomjs --version)"
+  echo "=> version: $($1 --version)"
   echo "=> path: $1"
 }
 
