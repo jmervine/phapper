@@ -8,7 +8,7 @@
     "test": "make test"
   },
   "config": {
-    "phantomjs_version": "1.9.7"
+    "phantomjs_version": "1.9.8"
   },
   "repository": {
     "type": "git",
@@ -25,7 +25,5 @@
   "devDependencies": {
     "nodeunit": "~0.8.1"
   },
-  "dependencies": {
-    "execSync": "~1.0.1-pre"
-  }
+  "dependencies": {}
 }
