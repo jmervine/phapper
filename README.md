@@ -16,14 +16,13 @@ passed PhantomJS script (if possible).
 
 Tested on the following node versions (via [Travis-ci.org](http://travis-ci.org)):
 
-- 0.8
 - 0.10
 
 
 ## Install
 
     $ npm install phapper
-    
+
 > Note: On CentOS 6, I had to install the following packages:
 > - `sudo yum install freetype fontconfig`
 

@@ -1,10 +1,10 @@
 {
   "name": "phapper",
-  "version": "0.1.10",
+  "version": "0.1.12",
   "description": "PhantomJS Script wrapper for Node.",
   "main": "./lib/phapper.js",
   "engines": {
-    "node": ">=0.10 <0.11"
+    "node": ">=0.10"
   },
   "scripts": {
     "install": "node install.js",
@@ -21,7 +21,7 @@
     "phantomjs"
   ],
   "author": "Joshua Mervine <joshua@mervine.net> (http://mervine.net)",
-  "license": "BSD",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/jmervine/phapper/issues"
   },
