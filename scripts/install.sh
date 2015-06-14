@@ -40,12 +40,10 @@ if test -x "$libdir/phantom/bin/phantomjs"; then
 fi
 
 # dowload how? || fail
-if which wget > /dev/null; then
-  dldr="wget"
-elif which curl > /dev/null; then
-  dldr="curl -O"
+if which curl > /dev/null; then
+  dldr="curl -sLO"
 else
-  echo "I need wget or curl to download PhantomJS."
+  echo "I need curl to download PhantomJS."
   exit 1
 fi
 
@@ -86,6 +84,7 @@ if test -f $phpkg; then
   echo "=> $phapper_temp/$phpkg"
   package="$phapper_temp/$phpkg"
 else
+  echo "$dldr \"$srcpath/$phpkg\""
   $dldr "$srcpath/$phpkg"
 fi
 
