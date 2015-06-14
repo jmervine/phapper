@@ -125,11 +125,9 @@ module.exports = {
         test.ok(results.output);
         test.equal("stdout: foobar\nstderr: foobar\n", results.output);
 
-        // for backwards compatibility, will remove
-        // in 0.2.0
         test.ok(results.stdout);
-        test.equal("stdout: foobar\nstderr: foobar\n", results.stdout);
-        test.equal("", results.stderr);
+        test.equal("stdout: foobar\n", results.stdout);
+        test.equal("stderr: foobar\n", results.stderr);
 
         test.done();
     },

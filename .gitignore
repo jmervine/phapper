@@ -1,2 +1,5 @@
 /node_modules
 /lib/phantom
+
+# locking so local dev doesn't clobber
+/lib/phpath.js
