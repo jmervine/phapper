@@ -114,7 +114,7 @@ module.exports = {
     },
 
     '#runSync() :: string output': function (test) {
-        test.expect(6);
+        test.expect(3);
 
         var phstr = new Phapper("./test/support/string.js",
                     [ "--foo", "bar", "foobar" ]);
@@ -124,10 +124,6 @@ module.exports = {
         test.ok(results);
         test.ok(results.output);
         test.equal("stdout: foobar\nstderr: foobar\n", results.output);
-
-        test.ok(results.stdout);
-        test.equal("stdout: foobar\n", results.stdout);
-        test.equal("stderr: foobar\n", results.stderr);
 
         test.done();
     },
