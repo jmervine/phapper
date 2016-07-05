@@ -1,6 +1,6 @@
 {
   "name": "phapper",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "PhantomJS Script wrapper for Node.",
   "main": "./lib/phapper.js",
   "engines": {
