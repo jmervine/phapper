@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:jmervine/phapper.git"
+    "url": "git@github.com:alphara/phapper.git"
   },
   "keywords": [
     "phantomjs"
